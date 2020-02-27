@@ -1,0 +1,17 @@
+.map {
+  
+  height: 85vh;
+  
+}
+.center-navbar {
+  text-align: center;
+}
+
+.center-navbar .navbar {
+  display: block;
+}
+.p1 {
+  text-align: center;
+}
+
+
