@@ -51,7 +51,7 @@ MainPageMonu = () => {
         <Navbar.Brand>
         
         <Nav className="mr-auto" >
-        <Nav.Link href="/">Retourner à la Carte</Nav.Link>
+        <p><Link to="/">Bonjour</Link></p>
 
         </Nav>
         </Navbar.Brand>
@@ -65,8 +65,7 @@ MainPageMonu = () => {
           { 
           this.state.lieux.map(lieu => 
           <ListGroup>
-            <ListGroup.Item className="lit" action   variant="info"><p className="p1">{lieu.NomLieu}</p></ListGroup.Item> 
-            <img src={lieu.Photo1} alt="" />         
+            <ListGroup.Item className="lit" action   variant="info"><p className="p1">{lieu.NomLieu}</p></ListGroup.Item>          
           </ListGroup>          
                               )
           }
@@ -83,9 +82,12 @@ render() {
   
   return (  
     <Router>
+    <Switch>
       <Route exact path="/Monuments" component={this.MainPageMonu} />
       <Route exact path="/" component={MyMap} />
+    </Switch>
     </Router>
+ 
         );
         }
 }

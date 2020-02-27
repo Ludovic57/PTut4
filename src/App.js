@@ -12,6 +12,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import axios from 'axios';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import Monuments from './Monuments.js';
 import { Nav } from 'react-bootstrap';
@@ -96,9 +98,7 @@ MainPage = () => {
       <div className="center-navbar"> 
         <Navbar bg="primary" variant="dark">
         <Navbar.Brand>
-        <img position= "center"  alt="" src={logoIcon} width="10%" height="10%" className="d-inline-block align-top"  />{' '} 
-        <Nav className="mr-auto">
-        </Nav>
+        
         </Navbar.Brand>
         </Navbar>
       </div>
@@ -113,11 +113,19 @@ MainPage = () => {
           {
             this.state.lieux.map(lieu => <Marker position={[ lieu.LatLieu, lieu.LongLieu]} icon={this.monuIcon}>
               <Popup>
-              <img className="img_monu" src={lieu.Photo1} alt="Monument" />
-              <br/>
-              <span className="titre_monu">{lieu.NomLieu}</span><br/><span className="desc_monu">>{lieu.DescLieu} </span>
              
+              <br/>
+              <span className="titre_monu">{lieu.NomLieu}</span><br/><span className="desc_monu">{lieu.DescLieu} </span>
+              <Carousel>
+                <div>
+                    <img className="img_monu" src={lieu.Photo1} alt="monument" />
+                </div>
+                <div>
+                    <img className="img_monu" src={lieu.Photo2} alt="monument" />
+                </div>
+            </Carousel>
               </Popup>
+
             </Marker>)
           }
           <Marker position={pos} icon={this.userIcon}>
@@ -131,7 +139,7 @@ MainPage = () => {
         <Navbar fixed="bottom" bg="primary" variant="dark">
         <Navbar.Brand> 
         <Nav className="mr-auto" >
-        <Nav.Link href="/Monuments">Liste des Monuments</Nav.Link>
+        <p><Link to="/Monuments">Bonjour</Link></p>
         </Nav>
         </Navbar.Brand>
         </Navbar>
@@ -144,8 +152,10 @@ MainPage = () => {
 render(){
   return (
       <Router>
-          <Route exact path="/" component={this.MainPage} />
-          <Route exact path="/Monuments" component={Monuments} />
+            <Switch>
+            <Route path="/Monuments" component={Monuments} />
+            <Route path="/" component={this.MainPage} />
+            </Switch>
       </Router>
 );
 }

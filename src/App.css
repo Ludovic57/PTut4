@@ -14,12 +14,25 @@
   text-align: center;
 }
 
-.img_monu {
-
-  border:3px solid black;
-  width:100px;
-  height: 100px;
-
+.titre_monu {
+  margin:10 auto 10 auto;
+  text-align: center;
+  border: 1px dotted black;
 }
+
+.desc_monu {
+  margin:10 auto 10 auto;
+  text-align: center;
+  border: 1px solid black;
+}
+
+
+
+.img_monu {
+  width:150px;
+  height:150px;
+}
+
+
 
 
