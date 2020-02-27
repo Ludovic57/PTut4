@@ -113,7 +113,10 @@ MainPage = () => {
           {
             this.state.lieux.map(lieu => <Marker position={[ lieu.LatLieu, lieu.LongLieu]} icon={this.monuIcon}>
               <Popup>
-              <span>{lieu.NomLieu}<br/>{lieu.DescLieu}</span>
+              <img className="img_monu" src={lieu.Photo1} alt="Monument" />
+              <br/>
+              <span className="titre_monu">{lieu.NomLieu}</span><br/><span className="desc_monu">>{lieu.DescLieu} </span>
+             
               </Popup>
             </Marker>)
           }

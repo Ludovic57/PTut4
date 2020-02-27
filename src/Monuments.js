@@ -65,7 +65,8 @@ MainPageMonu = () => {
           { 
           this.state.lieux.map(lieu => 
           <ListGroup>
-            <ListGroup.Item className="lit" action   variant="info"><p className="p1">{lieu.NomLieu}</p></ListGroup.Item>          
+            <ListGroup.Item className="lit" action   variant="info"><p className="p1">{lieu.NomLieu}</p></ListGroup.Item> 
+            <img src={lieu.Photo1} alt="" />         
           </ListGroup>          
                               )
           }
